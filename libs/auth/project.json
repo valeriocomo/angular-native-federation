@@ -1,0 +1,26 @@
+{
+  "name": "auth",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/auth/src",
+  "prefix": "anf",
+  "tags": ["type:auth"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/auth/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/auth/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/auth/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

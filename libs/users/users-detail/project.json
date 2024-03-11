@@ -1,0 +1,26 @@
+{
+  "name": "users-detail",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/users/users-detail/src",
+  "prefix": "anf",
+  "tags": ["type:feature", "domain:users"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/users/users-detail/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/users/users-detail/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/users/users-detail/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "users-shell",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/users/users-shell/src",
+  "prefix": "anf",
+  "tags": ["type:feature-shell", "domain:users"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/users/users-shell/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/users/users-shell/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/users/users-shell/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

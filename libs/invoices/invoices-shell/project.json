@@ -1,0 +1,26 @@
+{
+  "name": "invoices-shell",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/invoices/invoices-shell/src",
+  "prefix": "anf",
+  "tags": ["type:feature-shell", "domain:invoices"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/invoices/invoices-shell/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/invoices/invoices-shell/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/invoices/invoices-shell/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

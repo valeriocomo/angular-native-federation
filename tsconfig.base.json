@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@anf/auth": ["libs/auth/src/index.ts"],
+      "@anf/invoices-detail": ["libs/invoices/invoices-detail/src/index.ts"],
+      "@anf/invoices-list": ["libs/invoices/invoices-list/src/index.ts"],
+      "@anf/invoices-shell": ["libs/invoices/invoices-shell/src/index.ts"],
+      "@anf/users-detail": ["libs/users/users-detail/src/index.ts"],
+      "@anf/users-list": ["libs/users/users-list/src/index.ts"],
+      "@anf/users-shell": ["libs/users/users-shell/src/index.ts"],
+      "@anf/users/data-layer": ["libs/users/data-layer/src/index.ts"],
+      "@anf/users/domain": ["libs/users/domain/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

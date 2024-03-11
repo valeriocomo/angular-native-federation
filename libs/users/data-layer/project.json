@@ -1,0 +1,26 @@
+{
+  "name": "users-data-layer",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/users/data-layer/src",
+  "prefix": "anf",
+  "tags": ["type:data-layer", "domain:users"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/users/data-layer/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/users/data-layer/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/users/data-layer/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              // {
+              //   "sourceTag": "*",
+              //   "onlyDependOnLibsWithTags": ["*"]
+              // },
+              {
+                "sourceTag": "type:app-shell",
+                "onlyDependOnLibsWithTags": ["*"]
+              }, 
+              {
+                "sourceTag": "type:app-mf",
+                "onlyDependOnLibsWithTags": ["type:app-shell"]
+              }, 
+              {
+                "sourceTag": "type:feature-shell",
+                "onlyDependOnLibsWithTags": ["type:feature"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:auth","type:domain"]
+              },
+              {
+                "sourceTag": "type:auth",
+                "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "type:domain",
+                "onlyDependOnLibsWithTags": ["type:auth","type:data-layer"]
+              },
+              {
+                "sourceTag": "type:data-layer",
+                "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "domain:invoices",
+                "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "domain:users",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {}
+    }
+  ]
+}
